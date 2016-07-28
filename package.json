@@ -4,9 +4,6 @@
   "version": "1.0.0",
   "description": "A comprehensive web exercise/application for \"Beyond jQuery\" readers that covers many of the concepts discussed in the book.",
   "main": "server/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git@github.com:Beyond-jQuery/exercise.git"
