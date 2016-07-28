@@ -69,6 +69,7 @@ Chrome for Android.
 * Working with arrays, objects, and functions (chapter 12)
 * Separation of concerns, small focused modules, minimal dependencies (chapter 13)
 
+**The source code is heavily commented.** Please take a look at the code and its comments for more details.
 
 ## Installing & running the app
 
