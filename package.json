@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "beyond-jquery-grocery-list",
+  "version": "1.0.0",
+  "description": "A comprehensive web exercise/application for \"Beyond jQuery\" readers that covers many of the concepts discussed in the book.",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Beyond-jQuery/exercise.git"
+  },
+  "author": "Ray Nicholus",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "es6-promise": "3.2.1",
+    "express": "4.14.0",
+    "material-design-icons": "2.2.3",
+    "whatwg-fetch": "1.0.0"
+  },
+  "engines": {
+    "node" : "^5.0.0" 
+  },
+  "scripts": {
+    "start": "node server"
+  }
+}

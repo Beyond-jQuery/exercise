@@ -1,0 +1,208 @@
+/* This is the stylesheet for the grocery list application. */
+
+
+body {
+    /*The background image (the paper bag) is declared here*/
+    background-image: url('/paperbag.jpg');
+    background-position: center -125px;
+    background-repeat: no-repeat;
+
+    /* Created by Marcin Wichary via https://medium.com/design/system-shock-6b1dc6d6596f#.hloboxs5n.*/
+    /*This defaults to the OS system fonts*/
+    font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+
+    /*This font-size prevents auto-zooming in iOS*/
+    font-size: 16px;
+}
+
+button {
+    /*This is only needed for IE*/
+    cursor: default;
+}
+
+/*Older browsers do not directly support the hidden attribute,
+so this ensures cross-browser compatibility.*/
+[hidden] {
+    display: none !important;
+}
+
+input {
+    /*This prevents auto-zooming when the input receives focus in iOS.*/
+    font-size: 16px;
+}
+
+/*Alignment and placement of view-mode elements for each grocery item.*/
+.grocery-item-viewing {
+    display: inline-block;
+    vertical-align: middle;
+    width: 90%;
+}
+
+/*Render the edit and delete buttons off to the right of each list item.*/
+.grocery-item-edit-delete-container {
+    display: inline-block;
+    float: right;
+}
+
+/*Each button in the app is styled the same*/
+.grocery-items-button {
+    background-color: #F5F5DC;
+    border: none;
+    border-radius: 3px;
+    height: 30px;
+    padding: 0 1px;
+    margin: 0 3px;
+    vertical-align: middle;
+    width: 30px;
+}
+/*Each button in the app changes it appearance a bit to indicate focus or hover.*/
+.grocery-items-button:focus {
+    box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.75);
+    outline: none;
+}
+.grocery-items-button:hover {
+    box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.75);
+}
+
+/*This is for the images inside the buttons.*/
+.material-icons {
+    font-size: 18px;
+}
+
+/*When in edit mode for an item, hide the view-only mode elements & show the editing elements.*/
+.grocery-item[editing] .grocery-item-viewing {
+    display: none;
+}
+.grocery-item[editing] .grocery-item-editing {
+    display: inline-block;
+}
+/*When not in edit mode, hide the editing elements.*/
+.grocery-item .grocery-item-editing {
+    display: none;
+}
+
+/*This ensures the edit and delete buttons are side-by-side.*/
+.grocery-item-edit-delete-buttons {
+    display: inline-block;
+}
+
+/*Alignment for the item name element.*/
+.grocery-item-name {
+    vertical-align: sub;
+}
+
+/*When an grocery item has its checkbox checked, draw a line though the item name.*/
+.grocery-item[completed] .grocery-item-name {
+    text-decoration: line-through;
+}
+
+/*Center the app*/
+.grocery-list-container {
+    position: relative;
+    left: 50%;
+    float: left;
+    margin-top: 20px;
+}
+
+/*Styles for the actual list and header*/
+.grocery-list-content {
+    background-color: rgba(255, 255, 224, .37);
+    border-radius: 3px;
+    left: -56%;
+    float: left;
+    margin-top: 50px;
+    padding: 0 20px;
+    position: relative;
+    width: 100%;
+}
+
+/*Each grocery item is a list item, but we do not want to use the default browser list style.*/
+ol.grocery-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+/*Center the list title*/
+.grocery-list-title {
+    margin-top: 0;
+    text-align: center;
+}
+
+/*Positioning of each item + the add item elements.*/
+.grocery-item,
+.add-grocery-item {
+    border-top: 1px solid #ffebcd;
+    padding: 5px 0;
+}
+
+/*Set the width for the edit name text inputs.*/
+.add-grocery-item input[type='text'] {
+    width: 200px;
+}
+
+
+/*Width for the  editing-related elements & containers.*/
+.grocery-item-editing {
+    width: 90%;
+}
+.grocery-item-edit {
+    width: 65%;
+}
+
+/*Align the update button (when it edit mode) above the other edit icons.*/
+.grocery-item-update-button {
+    float: right;
+    margin-left: -44px;
+    margin-right: 44px;
+}
+
+/*Show/hide fade animation for the undo box.*/
+.grocery-item-delete-undo-prompt[aria-hidden='true'] {
+    opacity: 0;
+}
+.grocery-item-delete-undo-prompt {
+    left: 50%;
+    position: fixed;
+    top: 0;
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
+    z-index: 1;
+}
+
+/*Other styles for the undo box elements.*/
+.grocery-item-delete-undo-prompt-content {
+    background-color: rgba(255, 255, 224, .75);
+    left: -50%;
+    opacity: 0.95;
+    padding: 15px;
+    position: relative;
+    text-align: center;
+}
+
+/*Undo box close button.*/
+.grocery-item-delete-undo-prompt-close {
+    font-size: 16px;
+    margin-top: -7px;
+    position: absolute;
+    right: 3px;
+}
+
+/*Undo box text.*/
+.grocery-item-delete-undo-prompt-message {
+    padding-right: 40px;
+}
+
+/*This is for the error message at the bottom of the page.*/
+.grocery-list-alert {
+    position: fixed;
+    bottom: 0;
+    margin: 0 auto;
+    left: 50%;
+}
+.grocery-list-alert-content {
+    background-color: #FF9494;
+    left: -50%;
+    padding: 5px;
+    position: relative;
+    text-align: center;
+}

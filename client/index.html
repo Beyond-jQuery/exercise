@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--
+This is the one and only HTML file for our grocery list application. It contains all of the
+code required to load CSS and JavaScript files needed to control the list. Furthermore, it
+contains template markup used to generate new list items. Some initial markup that remains on
+the page for the life of this single page application is included as well.
+-->
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <!--This meta tag helps to properly display this app on a smaller screen mobile device.-->
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <title>Vanilla JS Grocery List</title>
+
+    <!--This is the font file used to render the delete, edit, save, and add icons.-->
+    <link href="node_modules/material-design-icons/iconfont/material-icons.css" rel="stylesheet">
+
+    <!--This is the stylesheet containing all custom styles defined for the grocery list page.-->
+    <link href='styles.css' rel='stylesheet'>
+
+    <!--
+    Template used by the ui.js file to render each newly created list item.
+    This consists of a checkbox used to mark the item as completed or not-completed, which
+    is always visible. The rest of the item can be divided up into two sections: viewing and
+    editing. When in "view mode" (when not editing the name) a name field, and edit button,
+    and a delete button are all visible. When in "edit mode", a text input used to update
+    the item name is visible, along with a save button. The edit mode section is an HTML form,
+    which easily allows us to support saving an updated name by pressing the enter key or
+    clicking on the save submit button.
+    -->
+    <script id='grocery-item-template' type='text/template'>
+        <li class='grocery-item' data-id=''>
+            <input class='grocery-item-completed'
+                   type='checkbox'
+                   title='toggle completed'
+                   aria-label='toggle completed'
+            >
+
+            <div class='grocery-item-viewing'>
+                <span class='grocery-item-name'></span>
+                <div class='grocery-item-edit-delete-container'>
+                    <button class='grocery-items-button grocery-item-edit-button'
+                            type='button'
+                            title='edit item name'
+                            aria-label='edit item name'
+                    >
+                        <span class="material-icons">&#xE254;</span>
+                    </button>
+                    <button class='grocery-items-button grocery-item-delete-button'
+                            type='button'
+                            title='delete item'
+                            aria-label='delete item'
+                    >
+                        <span class="material-icons">&#xE872;</span>
+                    </button>
+                </div>
+            </div>
+
+            <form class='grocery-item-editing'>
+                <input class='grocery-item-edit'
+                       type='text'
+                       title='enter new item name'
+                       aria-label='enter-new-item-name'
+                >
+                <button class='grocery-items-button grocery-item-update-button'
+                        title='save new item name'
+                        aria-label='save new item name'
+                >
+                    <span class="material-icons">&#xE161;</span>
+                </button>
+            </form>
+        </li>
+    </script>
+</head>
+
+<body>
+    <!--
+    A message box that appears at the top of the page when the user deleted a grocery list item.
+    This includes a button that allows the delete to be reversed.
+    -->
+    <div class='grocery-item-delete-undo-prompt' aria-hidden='true'>
+        <div class='grocery-item-delete-undo-prompt-content'>
+            <button class='grocery-items-button grocery-item-delete-undo-prompt-close'
+                    type='button'
+                    title='close undo'
+                    aria-label='close undo'
+            >
+                x
+            </button>
+            <div class='grocery-item-delete-undo-prompt-message'>
+                Grocery item deleted.
+                <button class='grocery-item-delete-undo-button'>
+                    Undo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--All grocery items are rendered inside of this element.-->
+    <div class='grocery-list-container'>
+        <div class='grocery-list-content'>
+            <h1 class='grocery-list-title'>
+                Beyond Groceries
+            </h1>
+            <ol class='grocery-list'>
+                <!--
+                This list item allows a new grocery item name to be submitted to the server.
+                By using an HTML form, we get keyboard accessibility for free. That is, the
+                user can hit the enter key to submit the new name instead of clicking the "add"
+                button, if they choose.
+                -->
+                <li class='add-grocery-item'>
+                    <form>
+                        <input type='text'
+                               aria-label='enter a new grocery item'
+                               autofocus
+                               placeholder='enter a new grocery item'
+                        >
+                        <button class='grocery-items-button grocery-item-add-button'
+                                title='add new item'
+                                aria-label='add new item'
+                        >
+                            <i class="material-icons">&#xE89C;</i>
+                        </button>
+                    </form>
+                </li>
+            </ol>
+        </div>
+        </div>
+
+    <!--
+    This appears at the bottom of the page, briefly, when an error is detected.
+    The details of the error message are supplied by code in the ui.js file.
+    -->
+    <div class='grocery-list-alert' hidden>
+        <div class='grocery-list-alert-content'></div>
+    </div>
+
+    <!--The Promise and Fetch API polyfills, respectively, are loaded below.-->
+    <script src='/node_modules/es6-promise/dist/es6-promise.min.js' type='application/javascript'></script>
+    <script src='/node_modules/whatwg-fetch/fetch.js' type='application/javascript'></script>
+
+    <!--
+    All of our custom JavaScript files used to control the grocery list are loaded below.
+    These and the above polyfill JS files are loaded after the DOM elements have loaded.
+    This allows us to omit listening for DOMContentLoaded events in our JS files. This is
+    discussed more in chapter 10. In a production application, all of these files would
+    likely be minified and combined into a single file.
+    -->
+    <script src='/util.js' type='application/javascript'></script>
+    <script src='/store.js' type='application/javascript'></script>
+    <script src='/ui.js' type='application/javascript'></script>
+    <script src='/event.js' type='application/javascript'></script>
+    <script src='/index.js' type='application/javascript'></script>
+</body>
+</html>
