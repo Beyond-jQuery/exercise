@@ -1,6 +1,6 @@
 # You don't need jQuery (for your grocery list)
 
-A comprehensive web exercise/application for "Beyond jQuery" readers that covers many of the concepts discussed in the book.
+A comprehensive web exercise/application for ["Beyond jQuery"][amazon] readers that covers many of the concepts discussed in the book.
 
 
 ## What is this and how does it work?
@@ -114,7 +114,7 @@ here are some ways that you can potentially enhance our simple grocery list:
 
 These suggestions are just a small subset of the possibilities. 
 
-
+[amazon]: https://amzn.com/1484222342
 [contributions-branch]: https://github.com/Beyond-jQuery/exercise/tree/contributions
 [github-git]: https://help.github.com/articles/set-up-git/
 [issue-tracker]: https://github.com/Beyond-jQuery/exercise/issues
