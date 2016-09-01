@@ -68,6 +68,7 @@ Chrome for Android.
 * String manipulation (chapter 12)
 * Working with arrays, objects, and functions (chapter 12)
 * Separation of concerns, small focused modules, minimal dependencies (chapter 13)
+* BONUS: Web animation without jQuery (see the [CSS transition][css-transition-example] for the undo box fade in/out)
 
 **The source code is heavily commented.** Please take a look at the code and its comments for more details.
 
@@ -116,6 +117,7 @@ These suggestions are just a small subset of the possibilities.
 
 [amazon]: https://amzn.com/1484222342
 [contributions-branch]: https://github.com/Beyond-jQuery/exercise/tree/contributions
+[css-transition-example]: https://github.com/Beyond-jQuery/exercise/blob/1.0.0/client/styles.css#L168
 [github-git]: https://help.github.com/articles/set-up-git/
 [issue-tracker]: https://github.com/Beyond-jQuery/exercise/issues
 [nvm]: https://github.com/creationix/nvm
