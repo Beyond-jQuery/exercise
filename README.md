@@ -68,7 +68,7 @@ Chrome for Android.
 * String manipulation (chapter 12)
 * Working with arrays, objects, and functions (chapter 12)
 * Separation of concerns, small focused modules, minimal dependencies (chapter 13)
-* BONUS: Web animation without jQuery (see the [CSS transition][css-transition-example] for the undo box fade in/out)
+* BONUS: Web animations without jQuery (see the [CSS transition][css-transition-example] for the undo box fade in/out)
 
 **The source code is heavily commented.** Please take a look at the code and its comments for more details.
 
